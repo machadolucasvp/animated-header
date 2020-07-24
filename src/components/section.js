@@ -15,7 +15,7 @@ const tags = ['hello', 'world', 'why', 'this', 'is', 'so', 'funny'].map(
 const Section = (props) => {
   const {animationRange, ...otherProps} = props;
   const transform = {
-    translateY: animationRange.interpolate({
+    translateY: animationRange?.interpolate({
       inputRange: [0, OVERLAYED_BOX_HEIGHT],
       outputRange: [0, -OVERLAYED_BOX_HEIGHT],
       extrapolate: 'clamp',

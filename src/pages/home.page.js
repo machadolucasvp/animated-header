@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {
   View,
   StyleSheet,
-  ScrollView,
   Image,
   Animated,
   StatusBar,
@@ -10,7 +9,7 @@ import {
 } from 'react-native';
 import {useHeaderHeight} from '@react-navigation/stack';
 
-import {Section} from '../components';
+import {Section, OverlayedHeader} from '../components';
 import {OVERLAYED_BOX_HEIGHT} from '../constants/home';
 import {Colors} from '../utils/colors';
 
@@ -40,12 +39,7 @@ const _HomePage = () => {
           [{nativeEvent: {contentOffset: {y: scrollY}}}],
           {useNativeDriver: true},
         )}>
-        <View style={Styles.overlayedBox}>
-          <Image
-            style={Styles.overlayedImage}
-            source={require('../assets/images/kimetsu.jpg')}
-          />
-        </View>
+        <OverlayedHeader {...animationRange} />
         <Section {...animationRange} />
       </Animated.ScrollView>
     </View>
