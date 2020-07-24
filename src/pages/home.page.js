@@ -5,6 +5,7 @@ import {
   ScrollView,
   Image,
   Animated,
+  StatusBar,
   Dimensions,
 } from 'react-native';
 import {useHeaderHeight} from '@react-navigation/stack';
@@ -15,7 +16,7 @@ import {Colors} from '../utils/colors';
 
 const WINDOW_HEIGHT = Dimensions.get('window').height;
 
-const HomePage = () => {
+const _HomePage = () => {
   const [scrollY, setScrollY] = useState(new Animated.Value(0));
   const HEADER_HEIGHT = useHeaderHeight();
   const animationRange = {
@@ -30,7 +31,10 @@ const HomePage = () => {
     <View style={Styles.container}>
       <Animated.ScrollView
         contentContainerStyle={{
-          height: WINDOW_HEIGHT + OVERLAYED_BOX_HEIGHT - HEADER_HEIGHT,
+          height:
+            WINDOW_HEIGHT +
+            OVERLAYED_BOX_HEIGHT -
+            (StatusBar.currentHeight + HEADER_HEIGHT),
         }}
         onScroll={Animated.event(
           [{nativeEvent: {contentOffset: {y: scrollY}}}],
@@ -50,7 +54,7 @@ const HomePage = () => {
 
 const Styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: Colors.secondary,
     flex: 1,
   },
   overlayedBox: {
@@ -63,8 +67,8 @@ const Styles = StyleSheet.create({
     width: '100%',
   },
   scrollViewContainer: {
-    height: WINDOW_HEIGHT + OVERLAYED_BOX_HEIGHT,
+    height: WINDOW_HEIGHT,
   },
 });
 
-export default HomePage;
+export default _HomePage;

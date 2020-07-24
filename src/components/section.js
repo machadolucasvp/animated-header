@@ -23,7 +23,7 @@ const Section = (props) => {
   };
 
   return (
-    <Animated.View {...otherProps}>
+    <Animated.View style={Styles.container} {...otherProps}>
       <ScrollView
         contentContainerStyle={Styles.horizontalScroll}
         showsHorizontalScrollIndicator={false}
@@ -37,8 +37,13 @@ const Section = (props) => {
 };
 
 const Styles = StyleSheet.create({
+  container: {
+    borderColor: Colors.tertiary,
+    borderBottomWidth: 2,
+  },
   horizontalScroll: {
     alignItems: 'center',
+    justifyContent: 'center',
     minWidth: '100%',
     minHeight: 40,
     backgroundColor: Colors.secondary,

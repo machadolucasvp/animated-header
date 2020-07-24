@@ -28,11 +28,12 @@ const defaultScreenOptions = {
     fontWeight: 'bold',
   },
 };
+
 const App = () => {
   const Stack = createStackNavigator();
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar backgroundColor={Colors.tertiary} barStyle="dark-content" />
       <NavigationContainer>
         <Stack.Navigator screenOptions={defaultScreenOptions}>
           <Stack.Screen name="Home" component={HomePage} />

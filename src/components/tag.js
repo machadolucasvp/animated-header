@@ -1,12 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 import {Colors} from '../utils/colors';
 
 const Tag = ({text, style}) => {
   return (
     <View style={[Styles.container, style]}>
-      <Text style={Styles.text}>{text}</Text>
+      <TouchableOpacity>
+        <Text style={Styles.text}>{text}</Text>
+      </TouchableOpacity>
     </View>
   );
 };
