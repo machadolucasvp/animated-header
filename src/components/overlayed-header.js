@@ -4,10 +4,15 @@ import {View, Image, Animated, StyleSheet} from 'react-native';
 import {OVERLAYED_BOX_HEIGHT} from '../constants/home';
 
 const OverlayedHeader = ({animationRange}) => {
+  const opacity = animationRange.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: [1, 0.3, 0],
+  });
+
   return (
     <Animated.View style={Styles.container}>
-      <Image
-        style={Styles.overlayedImage}
+      <Animated.Image
+        style={[Styles.overlayedImage, {opacity}]}
         source={require('../assets/images/kimetsu.jpg')}
       />
     </Animated.View>
