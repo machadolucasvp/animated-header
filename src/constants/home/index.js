@@ -1,0 +1,1 @@
+export const OVERLAYED_BOX_HEIGHT = 200;
